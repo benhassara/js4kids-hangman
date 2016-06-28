@@ -10,6 +10,9 @@ console.log(maskedWord);
 console.log(displayScore(maskedWord));
 console.log(guess);
 
+console.log('word: billy');
+console.log(checkGuess('l', 'billy'));
+
 // chooses a random word from an array of words
 function pickWord(wordArray) {
   // choose a random number from 0 to 1 less than the length of the array
@@ -48,5 +51,22 @@ function getPlayerGuess() {
   else {
     return guess.toLowerCase();
   }
+}
+
+// check the target word for the guessed letter
+function checkGuess(guess, word) {
+  var indexes = [];
+
+  // loop over each character
+  for (var i = 0; i < word.length; i++) {
+    // check whether the current character is equal to the guess
+    if (word[i] === guess) {
+      // if it is, push it's index in the word to indexes
+      indexes.push(i);
+    }
+  };
+
+  // return the list of indexes that need to be updated
+  return indexes;
 }
 
