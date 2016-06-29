@@ -17,10 +17,10 @@ while (remainingLetters > 0) {
 }
 
 // if there are still remaining letters to guess, they quit early
+// else if no remaining letters, they guessed the whole word
 if (remainingLetters > 0) {
   alert('The word was: ' + word.join('').toUpperCase() + '\nBetter luck next time!');
 }
-// if there are no remaining letters, they guessed the whole word
 else {
   alert('Great job, you won! \nThe word was: ' + word.join('').toUpperCase());
 }
@@ -53,14 +53,13 @@ function getPlayerGuess() {
   var guess = prompt('Guess a letter, or click Cancel to quit.');
 
   // guess will be null when they click Cancel instead of entering a char
+  // we only want single letter guesses
   if (guess === null) {
     return null;
   }
-  // we only want single letter guesses
   else if (guess.length !== 1) {
     alert('Please enter a single letter.');
   }
-  // if it's just a single letter, we're good to go
   else {
     return guess.toLowerCase();
   }
@@ -76,7 +75,8 @@ function checkGuess(guess, word) {
     if (maskedWord[i] !== '_') {
       continue;
     }
-    // check whether the current character is equal to the guess, and not filled in
+
+    // check whether the current character is equal to the guess
     if (word[i] === guess) {
       // if it is, push it's index in the word to indexes array
       indexes.push(i);
