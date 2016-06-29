@@ -1,19 +1,12 @@
-// Hangman
+// Hangman - JS For Kids
 
-// var word = pickWord(wordList);
+// pick a random word from the wordList in words.js
+var word = pickWord(wordList);
 // creates a string of the same length as word, but each char is an underscore
-// var maskedWord = mask(word);
-// var guess = getPlayerGuess();
-// var remainingLetters = word.length;
-
-var word = 'apple';
 var maskedWord = mask(word);
 var remainingLetters = word.length;
-// var guess = getPlayerGuess();
-// var indexes = checkGuess(guess, word);
-// updateScore(guess, indexes, maskedWord);
-// console.log(maskedWord);
 
+// the game loop, continue until there are no more remaining letters
 while (remainingLetters > 0) {
   // run the round and store whether or not to continue or end game
   var roundStatus = runRound();
