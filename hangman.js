@@ -18,11 +18,11 @@ while (remainingLetters > 0) {
 
 // if there are still remaining letters to guess, they quit early
 if (remainingLetters > 0) {
-  alert('The word was: ' + word.toUpperCase() + '\nBetter luck next time!');
+  alert('The word was: ' + word.join('').toUpperCase() + '\nBetter luck next time!');
 }
 // if there are no remaining letters, they guessed the whole word
 else {
-  alert('Great job, you won! The word was: \n' + word.toUpperCase());
+  alert('Great job, you won! \nThe word was: ' + word.join('').toUpperCase());
 }
 
 
@@ -93,9 +93,10 @@ function checkGuess(guess, word) {
 function updateScore(guess, indexes) {
   // iterate over each index, and assign the guessed letter to its position
   // within the masked word
-  indexes.forEach(function(i) {
-    maskedWord[i] = guess;
-  });
+  for (var i = 0; i < indexes.length; i++) {
+    charIndex = indexes[i];
+    maskedWord[charIndex] = guess;
+  }
 }
 
 function runRound() {
