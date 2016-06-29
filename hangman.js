@@ -13,7 +13,25 @@ var remainingLetters = word.length;
 // var indexes = checkGuess(guess, word);
 // updateScore(guess, indexes, maskedWord);
 // console.log(maskedWord);
-runRound();
+
+while (remainingLetters > 0) {
+  // run the round and store whether or not to continue or end game
+  var roundStatus = runRound();
+  // if roundStatus is null, player wants to quit so break the loop
+  if (roundStatus === null) {
+    break;
+  }
+}
+
+// if there are still remaining letters to guess, they quit early
+if (remainingLetters > 0) {
+  alert('The word was: ' + word.toUpperCase() + '\nBetter luck next time!');
+}
+// if there are no remaining letters, they guessed the whole word
+else {
+  alert('Great job, you won! The word was: \n' + word.toUpperCase());
+}
+
 
 // chooses a random word from an array of words
 function pickWord(wordArray) {
