@@ -83,7 +83,7 @@ function checkGuess(guess, word) {
       // reduce the remainingLetters counter
       remainingLetters--;
     }
-  };
+  }
 
   // return the list of indexes that need to be updated
   return indexes;
@@ -121,4 +121,3 @@ function runRound() {
     updateScore(guess, updateIndexes);
   }
 }
-
